@@ -16532,7 +16532,7 @@
         this.each(function() {
             function detect() {
                 var source, canvas;
-                if (time = new Date().getTime(), $$.is("img")) source = new Image(), source.src = $$.attr("src"), 
+                if (time = new Date().getTime(), $$.is("img")) source = new Image(), source.crossOrigin = "Anonymous", source.src = $$.attr("src"), 
                 canvas = ccv.pre(source); else if ($$.is("video") || $$.is("canvas")) {
                     var copy, context;
                     source = $$[0], copy = document.createElement("canvas"), copy.setAttribute("width", source.videoWidth || source.width), 

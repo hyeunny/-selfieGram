@@ -18,8 +18,12 @@ $(document).ready(function(){
               src = photoUrl;
 
           img.crossOrigin = "Anonymous";
-          img.classList.add("single-photo-ig");
           img.classList.add("center-block");
+          img.classList.add("single-photo-ig");
+          img.classList.add("new");
+
+          img.src = src;
+
 
           img.onload = function() {
               canvas.width = img.width;
@@ -28,20 +32,17 @@ $(document).ready(function(){
               localStorage.setItem( "savedImageData", canvas.toDataURL("image/png") );
           }
 
-          img.src = src;
-
-          if ( img.complete || img.complete === undefined ) {
-              img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-              img.src = src;
-          }
-
           $("#ig-photos").append(img);
           scrollToBottom();
-          $(".single-photo-ig").faceDetection({
-            complete: function (faces) {
-            console.log(faces);
-            }
-          });
+          
+
+          // $(".new").faceDetection({
+          //   complete: function (faces) {
+          //   console.log(faces);
+          //   $(".new").removeClass("new");
+          //   }
+          // });
+
         }
     });
 
@@ -52,5 +53,4 @@ $(document).ready(function(){
 var scrollToBottom = function(){
   $('html, body').animate({scrollTop:$(document).height()}, 'slow');
 };
-
 
